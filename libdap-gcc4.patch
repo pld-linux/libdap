@@ -1,0 +1,11 @@
+--- libdap-3.5.3/GNU/GNURegex.h.orig	2005-10-01 00:48:01.000000000 +0200
++++ libdap-3.5.3/GNU/GNURegex.h	2006-02-21 22:03:52.708046500 +0100
+@@ -42,7 +42,7 @@
+ {
+ private:
+     regex_t d_preg;
+-    void Regex::init(const char *t) throw(Error);
++    void init(const char *t) throw(Error);
+     
+ public:
+     Regex(const char *t)  throw(Error);
