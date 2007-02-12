@@ -1,5 +1,5 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
-Summary(pl):	OPeNDAP - implementacja w C++ protoko≥u DAP (Data Access Protocol)
+Summary(pl.UTF-8):   OPeNDAP - implementacja w C++ protoko≈Çu DAP (Data Access Protocol)
 Name:		libdap
 Version:	3.5.3
 Release:	1
@@ -30,23 +30,23 @@ data model is very general (and similar to a modern structured
 programming language) so it can be applied to a wide variety of
 fields.
 
-%description -l pl
-Ten pakiet zawiera OPeNDAP - implementacjÍ w C++ protoko≥u dostÍpu do
+%description -l pl.UTF-8
+Ten pakiet zawiera OPeNDAP - implementacjƒô w C++ protoko≈Çu dostƒôpu do
 danych Data Access Protocol w wersji 2 (DAP2) z pewnymi
-rozszerzeniami, ktÛre bÍd± czÍ∂ci± DAP3.
+rozszerzeniami, kt√≥re bƒôdƒÖ czƒô≈õciƒÖ DAP3.
 
-DAP2 ma za zadanie udostÍpnienie jednolitego sposobu dostÍpu do wielu
-rÛønych rodzajÛw danych w Internecie. By≥ oryginalnie czÍ∂ci±
-projektÛw DODS, a nastÍpnie NVODS. Projekty te skupia≥y siÍ na
-dostÍpie do danych Earth-Science, wiÍc wiÍkszo∂Ê programÛw
-tworzonych przy uøyciu DAP2 by≥a zwi±zana z t± dyscyplin± nauki.
-Jednak model danych DAP2 jest bardzo ogÛlny (i podobny do
-wspÛ≥czesnych strukturalnych jÍzykÛw programowania), wiÍc moøe
-dotyczyÊ wielu rÛønych dziedzin.
+DAP2 ma za zadanie udostƒôpnienie jednolitego sposobu dostƒôpu do wielu
+r√≥≈ºnych rodzaj√≥w danych w Internecie. By≈Ç oryginalnie czƒô≈õciƒÖ
+projekt√≥w DODS, a nastƒôpnie NVODS. Projekty te skupia≈Çy siƒô na
+dostƒôpie do danych Earth-Science, wiƒôc wiƒôkszo≈õƒá program√≥w
+tworzonych przy u≈ºyciu DAP2 by≈Ça zwiƒÖzana z tƒÖ dyscyplinƒÖ nauki.
+Jednak model danych DAP2 jest bardzo og√≥lny (i podobny do
+wsp√≥≈Çczesnych strukturalnych jƒôzyk√≥w programowania), wiƒôc mo≈ºe
+dotyczyƒá wielu r√≥≈ºnych dziedzin.
 
 %package devel
 Summary:	Header files for OPeNDAP library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki OPeNDAP
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki OPeNDAP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.12.0
@@ -55,19 +55,19 @@ Requires:	libstdc++-devel
 %description devel
 Header files for OPeNDAP library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki OPeNDAP.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki OPeNDAP.
 
 %package static
 Summary:	Static OPeNDAP library
-Summary(pl):	Statyczna biblioteka OPeNDAP
+Summary(pl.UTF-8):   Statyczna biblioteka OPeNDAP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static OPeNDAP library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka OPeNDAP.
 
 %prep
