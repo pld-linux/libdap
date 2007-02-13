@@ -1,5 +1,5 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
-Summary(pl.UTF-8):   OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
+Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
 Version:	3.5.3
 Release:	1
@@ -46,7 +46,7 @@ dotyczyć wielu różnych dziedzin.
 
 %package devel
 Summary:	Header files for OPeNDAP library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki OPeNDAP
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki OPeNDAP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.12.0
@@ -60,7 +60,7 @@ Pliki nagłówkowe biblioteki OPeNDAP.
 
 %package static
 Summary:	Static OPeNDAP library
-Summary(pl.UTF-8):   Statyczna biblioteka OPeNDAP
+Summary(pl.UTF-8):	Statyczna biblioteka OPeNDAP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
