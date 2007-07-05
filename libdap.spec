@@ -9,8 +9,11 @@ Source0:	ftp://ftp.unidata.ucar.edu/pub/dods/DODS-3.5/source/%{name}-%{version}.
 # Source0-md5:	62579a9814ccb39579796cdcc1560067
 Patch0:		%{name}-gcc4.patch
 URL:		http://opendap.org/
+BuildRequires:	autoconf >= 2.57
+BuildRequires:	automake
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libxml2-devel >= 2.6.16
 Requires:	curl >= 7.12.0
 Requires:	libxml2 >= 2.6.16
@@ -75,6 +78,11 @@ Statyczna biblioteka OPeNDAP.
 %patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal} -I conf -I gl/m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
