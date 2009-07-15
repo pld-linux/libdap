@@ -1,12 +1,12 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
 Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
-Version:	3.5.3
-Release:	5
+Version:	3.9.3
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	ftp://ftp.unidata.ucar.edu/pub/dods/DODS-3.5/source/%{name}-%{version}.tar.gz
-# Source0-md5:	62579a9814ccb39579796cdcc1560067
+Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
+# Source0-md5:	597bf7aeb023186c65e1be4da868e75b
 Patch0:		%{name}-gcc4.patch
 URL:		http://opendap.org/
 BuildRequires:	autoconf >= 2.57
@@ -104,15 +104,25 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/getdap
 %attr(755,root,root) %{_sbindir}/deflate
 %attr(755,root,root) %{_libdir}/libdap.so.*.*.*
+%attr(755,root,root) %{_libdir}/libdapclient.so.*.*.*
+%attr(755,root,root) %{_libdir}/libdapserver.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/dap-config
+%attr(755,root,root) %{_bindir}/dap-config-pkgconfig
 %attr(755,root,root) %{_libdir}/libdap.so
-%{_libdir}/libdap.la
+%attr(755,root,root) %{_libdir}/libdapclient.so
+%attr(755,root,root) %{_libdir}/libdapserver.so
+%{_libdir}/libdap*.la
 %{_includedir}/libdap
 %{_aclocaldir}/libdap.m4
+%{_pkgconfigdir}/libdap.pc
+%{_pkgconfigdir}/libdapclient.pc
+%{_pkgconfigdir}/libdapserver.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libdap.a
+%{_libdir}/libdapclient.a
+%{_libdir}/libdapserver.a
