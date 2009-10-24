@@ -104,8 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/getdap
 %attr(755,root,root) %{_sbindir}/deflate
 %attr(755,root,root) %{_libdir}/libdap.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdap.so.10
 %attr(755,root,root) %{_libdir}/libdapclient.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdapclient.so.3
 %attr(755,root,root) %{_libdir}/libdapserver.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdapserver.so.7
 
 %files devel
 %defattr(644,root,root,755)
@@ -114,12 +117,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libdap.so
 %attr(755,root,root) %{_libdir}/libdapclient.so
 %attr(755,root,root) %{_libdir}/libdapserver.so
-%{_libdir}/libdap*.la
+%{_libdir}/libdap.la
+%{_libdir}/libdapclient.la
+%{_libdir}/libdapserver.la
 %{_includedir}/libdap
-%{_aclocaldir}/libdap.m4
 %{_pkgconfigdir}/libdap.pc
 %{_pkgconfigdir}/libdapclient.pc
 %{_pkgconfigdir}/libdapserver.pc
+%{_aclocaldir}/libdap.m4
 
 %files static
 %defattr(644,root,root,755)
