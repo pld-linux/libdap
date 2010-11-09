@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	tests		# perform tests
+#
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
 Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
@@ -10,7 +14,7 @@ Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
 URL:		http://opendap.org/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
-BuildRequires:	cppunit-devel >= 1.12.0
+%{?with_tests:BuildRequires:	cppunit-devel >= 1.12.0}
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
@@ -85,6 +89,8 @@ Statyczna biblioteka OPeNDAP.
 %{__automake}
 %configure
 %{__make}
+
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
