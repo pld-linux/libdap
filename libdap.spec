@@ -20,6 +20,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-devel >= 2.6.16
+BuildRequires:	pkgconfig
 Requires:	curl >= 7.12.0
 Requires:	libxml2 >= 2.6.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
