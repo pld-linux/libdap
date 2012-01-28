@@ -12,17 +12,17 @@ Group:		Libraries
 Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
 # Source0-md5:	ab8ab83332525e048802200ea0552619
 URL:		http://opendap.org/
-BuildRequires:	autoconf >= 2.61
+BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 %{?with_tests:BuildRequires:	cppunit-devel >= 1.12.0}
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libuuid-devel
-BuildRequires:	libxml2-devel >= 2.6.16
+BuildRequires:	libxml2-devel >= 1:2.6.16
 BuildRequires:	pkgconfig
 Requires:	curl >= 7.12.0
-Requires:	libxml2 >= 2.6.16
+Requires:	libxml2 >= 1:2.6.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,6 +60,8 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.12.0
 Requires:	libstdc++-devel
+Requires:	libuuid-devel
+Requires:	libxml2-devel >= 1:2.6.16
 
 %description devel
 Header files for OPeNDAP library.
@@ -117,7 +119,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libdapclient.so.3
 %attr(755,root,root) %{_libdir}/libdapserver.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdapserver.so.7
-%{_mandir}/man1/dap-config.1*
 %{_mandir}/man1/getdap.1*
 
 %files devel
@@ -135,6 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libdapclient.pc
 %{_pkgconfigdir}/libdapserver.pc
 %{_aclocaldir}/libdap.m4
+%{_mandir}/man1/dap-config.1*
 
 %files static
 %defattr(644,root,root,755)
