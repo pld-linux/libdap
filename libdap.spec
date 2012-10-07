@@ -5,12 +5,12 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
 Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
-Version:	3.11.3
+Version:	3.11.5
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
-# Source0-md5:	4f838e7bc487e77f3d4c937b473f7a23
+# Source0-md5:	86afe34d2ff23f8ad606ab3ea3ef2e61
 URL:		http://opendap.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
