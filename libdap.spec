@@ -5,24 +5,24 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
 Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
-Version:	3.12.1
+Version:	3.13.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
-# Source0-md5:	6e5ffff357cb6f630ff8781508a8d779
+# Source0-md5:	1ce7aa2f9c370d7d8233e8055ae2e233
 URL:		http://opendap.org/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 %{?with_tests:BuildRequires:	cppunit-devel >= 1.12.0}
-BuildRequires:	curl-devel >= 7.12.0
+BuildRequires:	curl-devel >= 7.19.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libuuid-devel
-BuildRequires:	libxml2-devel >= 1:2.6.16
+BuildRequires:	libxml2-devel >= 1:2.7.0
 BuildRequires:	pkgconfig
-Requires:	curl >= 7.12.0
-Requires:	libxml2 >= 1:2.6.16
+Requires:	curl >= 7.19.0
+Requires:	libxml2 >= 1:2.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,10 +58,10 @@ Summary:	Header files for OPeNDAP library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki OPeNDAP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	curl-devel >= 7.12.0
+Requires:	curl-devel >= 7.19.0
 Requires:	libstdc++-devel
 Requires:	libuuid-devel
-Requires:	libxml2-devel >= 1:2.6.16
+Requires:	libxml2-devel >= 1:2.7.0
 
 %description devel
 Header files for OPeNDAP library.
@@ -101,8 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# *.la kept for libgdal.la
-
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libdap*.la
 # library for test drivers
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libtest-types.a
 
@@ -117,9 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYRIGHT_* NEWS README*
 %attr(755,root,root) %{_bindir}/getdap
 %attr(755,root,root) %{_libdir}/libdap.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libdap.so.11
+%attr(755,root,root) %ghost %{_libdir}/libdap.so.17
 %attr(755,root,root) %{_libdir}/libdapclient.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libdapclient.so.3
+%attr(755,root,root) %ghost %{_libdir}/libdapclient.so.6
 %attr(755,root,root) %{_libdir}/libdapserver.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdapserver.so.7
 %{_mandir}/man1/getdap.1*
@@ -131,9 +131,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libdap.so
 %attr(755,root,root) %{_libdir}/libdapclient.so
 %attr(755,root,root) %{_libdir}/libdapserver.so
-%{_libdir}/libdap.la
-%{_libdir}/libdapclient.la
-%{_libdir}/libdapserver.la
 %{_includedir}/libdap
 %{_pkgconfigdir}/libdap.pc
 %{_pkgconfigdir}/libdapclient.pc
