@@ -1,0 +1,46 @@
+--- libdap-3.14.0/d4_ce/lex.d4_ce.cc.orig	2015-04-07 08:45:50.000000000 +0200
++++ libdap-3.14.0/d4_ce/lex.d4_ce.cc	2015-07-07 16:01:01.470481885 +0200
+@@ -1276,9 +1276,9 @@ void yyFlexLexer::switch_streams( std::i
+ }
+ 
+ #ifdef YY_INTERACTIVE
+-size_t yyFlexLexer::LexerInput( char* buf, size_t /* max_size */ )
++int yyFlexLexer::LexerInput( char* buf, int /* max_size */ )
+ #else
+-size_t yyFlexLexer::LexerInput( char* buf, size_t max_size )
++int yyFlexLexer::LexerInput( char* buf, int max_size )
+ #endif
+ {
+ 	if ( yyin->eof() || yyin->fail() )
+@@ -1305,7 +1305,7 @@ size_t yyFlexLexer::LexerInput( char* bu
+ #endif
+ }
+ 
+-void yyFlexLexer::LexerOutput( const char* buf, size_t size )
++void yyFlexLexer::LexerOutput( const char* buf, int size )
+ {
+ 	(void) yyout->write( buf, size );
+ }
+--- libdap-3.14.0/d4_ce/lex.d4_function.cc.orig	2015-04-04 06:47:36.000000000 +0200
++++ libdap-3.14.0/d4_ce/lex.d4_function.cc	2015-07-07 16:02:33.813811327 +0200
+@@ -1303,9 +1303,9 @@ void yyFlexLexer::switch_streams( std::i
+ }
+ 
+ #ifdef YY_INTERACTIVE
+-size_t yyFlexLexer::LexerInput( char* buf, size_t /* max_size */ )
++int yyFlexLexer::LexerInput( char* buf, int /* max_size */ )
+ #else
+-size_t yyFlexLexer::LexerInput( char* buf, size_t max_size )
++int yyFlexLexer::LexerInput( char* buf, int max_size )
+ #endif
+ {
+ 	if ( yyin->eof() || yyin->fail() )
+@@ -1332,7 +1332,7 @@ size_t yyFlexLexer::LexerInput( char* bu
+ #endif
+ }
+ 
+-void yyFlexLexer::LexerOutput( const char* buf, size_t size )
++void yyFlexLexer::LexerOutput( const char* buf, int size )
+ {
+ 	(void) yyout->write( buf, size );
+ }
