@@ -5,12 +5,12 @@
 Summary:	OPeNDAP C++ implementation of the Data Access Protocol
 Summary(pl.UTF-8):	OPeNDAP - implementacja w C++ protokołu DAP (Data Access Protocol)
 Name:		libdap
-Version:	3.18.3
+Version:	3.20.2
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://www.opendap.org/pub/source/%{name}-%{version}.tar.gz
-# Source0-md5:	65637240470295069cc0ac3a218f86da
+# Source0-md5:	e84b6043d240fc1e4c9513a67563a036
 URL:		https://www.opendap.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake
@@ -19,11 +19,15 @@ BuildRequires:	bison >= 3.0
 BuildRequires:	curl-devel >= 7.19.0
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtirpc-devel >= 0.2.4
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-devel >= 1:2.7.0
-BuildRequires:	pkgconfig
+# only checked for (and check is incompatible with openssl 1.1) and ev. linked, but actually not used
+#BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig >= 1:0.9.0
 Requires:	curl >= 7.19.0
+Requires:	libtirpc >= 0.2.4
 Requires:	libxml2 >= 1:2.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -93,7 +97,9 @@ Statyczna biblioteka OPeNDAP.
 %{__autoheader}
 %{__automake}
 %configure
-%{__make}
+# libcrypto is actually not used (as of 3.20.2)
+%{__make} \
+	CRYPTO_LIBS=
 
 %{?with_tests:%{__make} check}
 
@@ -118,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/getdap
 %attr(755,root,root) %{_bindir}/getdap4
 %attr(755,root,root) %{_libdir}/libdap.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libdap.so.23
+%attr(755,root,root) %ghost %{_libdir}/libdap.so.25
 %attr(755,root,root) %{_libdir}/libdapclient.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdapclient.so.6
 %attr(755,root,root) %{_libdir}/libdapserver.so.*.*.*
