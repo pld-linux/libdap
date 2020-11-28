@@ -1,0 +1,34 @@
+--- libdap-3.20.6/dap-config.in.orig	2020-11-28 10:24:30.039767070 +0100
++++ libdap-3.20.6/dap-config.in	2020-11-28 10:25:07.199565758 +0100
+@@ -4,8 +4,6 @@
+ #
+ prefix=@prefix@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}/lib
+-libdir64=${exec_prefix}/lib64
+ includedir=${prefix}/include
+ 
+ usage()
+@@ -60,7 +58,7 @@
+ 	;;
+ 
+     --libs)
+-       	echo "-L${libdir64} -L${libdir} -ldap -ldapserver -ldapclient @CURL_LIBS@ @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
++       	echo "-ldap -ldapserver -ldapclient @CURL_LIBS@ @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
+         ;;
+ #
+ #   Changed CURL_STATIC_LIBS to CURL_LIBS because the former was including a
+@@ -69,11 +67,11 @@
+ #   jhrg 2/7/12
+ 
+     --server-libs)
+-       	echo "-L${libdir64} -L${libdir} -ldap -ldapserver @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
++       	echo "-ldap -ldapserver @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
+        	;;
+ 
+     --client-libs)
+-       	echo "-L${libdir64} -L${libdir} -ldap -ldapclient @CURL_LIBS@ @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
++       	echo "-ldap -ldapclient @CURL_LIBS@ @XML2_LIBS@ @PTHREAD_LIBS@ @UUID_LIBS@ @LIBS@"
+        	;;
+ 
+     --prefix)

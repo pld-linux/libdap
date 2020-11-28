@@ -1,0 +1,32 @@
+--- libdap-3.20.6/conf/acinclude.m4.orig	2020-11-28 10:22:38.123706704 +0100
++++ libdap-3.20.6/conf/acinclude.m4	2020-11-28 10:22:43.093679780 +0100
+@@ -564,6 +564,8 @@
+ 	PKG_PROG_PKG_CONFIG([0.9.0])
+ 	PKG_CHECK_MODULES([TIRPC], [libtirpc >= 0.2.4],
+ 		[dap_xdrlib=`echo "${TIRPC_LIBS}" | sed -e 's/^-l//'`
++		TIRPC_PKG="libtirpc >= 0.2.4"
++		AC_SUBST([TIRPC_PKG])
+ 		AC_SUBST([TIRPC_CFLAGS])
+ 		AC_SUBST([TIRPC_LIBS])
+ 		AC_DEFINE([HAVE_LIBTIRPC], [1], [Define to 1 to use libtirpc.])],
+--- libdap-3.20.6/libdap.pc.in.orig	2017-05-19 02:47:13.000000000 +0200
++++ libdap-3.20.6/libdap.pc.in	2020-11-28 10:22:57.230269862 +0100
+@@ -8,6 +8,7 @@
+ Name: @PACKAGE@
+ Description: Common items for the OPeNDAP C++ implementation of the Data Access Protocol
+ Version: @VERSION@
++Requires: @TIRPC_PKG@
+ Libs: -L${libdir} -ldap
+ Libs.private:  @xmlprivatelibs@ @PTHREAD_LIBS@
+ Requires.private: @xmlprivatereq@
+--- libdap-3.20.6/dap-config.in.orig	2020-11-28 10:24:22.919805642 +0100
++++ libdap-3.20.6/dap-config.in	2020-11-28 10:24:30.039767070 +0100
+@@ -56,7 +56,7 @@
+ 	;;
+ 
+     --cflags)
+-	echo "-I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@"
++	echo "-I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@ @TIRPC_CFLAGS@"
+ 	;;
+ 
+     --libs)
