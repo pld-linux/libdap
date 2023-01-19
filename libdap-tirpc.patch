@@ -19,14 +19,14 @@
  Libs: -L${libdir} -ldap
  Libs.private:  @xmlprivatelibs@ @PTHREAD_LIBS@
  Requires.private: @xmlprivatereq@
---- libdap-3.20.6/dap-config.in.orig	2020-11-28 10:24:22.919805642 +0100
-+++ libdap-3.20.6/dap-config.in	2020-11-28 10:24:30.039767070 +0100
-@@ -56,7 +56,7 @@
- 	;;
- 
+--- libdap-3.20.11/dap-config.in.orig	2023-01-18 22:31:36.363868299 +0100
++++ libdap-3.20.11/dap-config.in	2023-01-18 22:32:15.696988547 +0100
+@@ -59,7 +59,7 @@ while test $# -gt 0; do
+     # which avoids issues with IDE warnings and will help later when there are
+     # two libdap libraries. jhrg 6/17/21
      --cflags)
--	echo "-I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@"
-+	echo "-I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@ @TIRPC_CFLAGS@"
+-	echo "-I${includedir} -I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@"
++	echo "-I${includedir} -I${includedir}/libdap @XML2_CFLAGS@ @CURL_CFLAGS@ @TIRPC_CFLAGS@"
  	;;
  
      --libs)

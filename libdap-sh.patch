@@ -1,0 +1,11 @@
+--- libdap-3.20.11/conf/ox_rhel8_tirpc.m4.orig	2022-07-01 20:20:09.000000000 +0200
++++ libdap-3.20.11/conf/ox_rhel8_tirpc.m4	2023-01-19 06:26:19.183531210 +0100
+@@ -27,7 +27,7 @@ AS_IF([test -f /etc/redhat-release && gr
+     dnl if this is RHEL8, then we need the tirpc library on CPPFLAGS and LDFLAGS
+     [
+         AC_MSG_NOTICE([Found a RHEL 8 or equivalent system...])
+-        AS_IF([grep -q -v tirpc <<< $CPPFLAGS || grep -q -v tirpc <<< $LDFLAGS],
++        AS_IF([echo $CPPFLAGS | grep -q -v tirpc || echo $LDFLAGS | grep -q -v tirpc],
+         dnl if either CPPFLAGS or LDFLAGS lack 'tirpc', error
+         [
+             AC_MSG_ERROR([Libdap4 on Redhat Linux 8 requires the tirpc library be included on CPPFLAGS and LDFLAGS])
