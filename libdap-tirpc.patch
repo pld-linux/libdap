@@ -1,11 +1,11 @@
---- libdap-3.20.6/conf/acinclude.m4.orig	2020-11-28 10:22:38.123706704 +0100
-+++ libdap-3.20.6/conf/acinclude.m4	2020-11-28 10:22:43.093679780 +0100
-@@ -564,6 +564,8 @@
- 	PKG_PROG_PKG_CONFIG([0.9.0])
+--- libdap-3.21.1/conf/acinclude.m4~	2025-01-14 00:03:54.000000000 +0100
++++ libdap-3.21.1/conf/acinclude.m4	2025-07-17 17:05:03.244189577 +0200
+@@ -565,6 +565,8 @@ AC_DEFUN([DODS_CHECK_SIZES], [dnl
  	PKG_CHECK_MODULES([TIRPC], [libtirpc >= 0.2.4],
- 		[dap_xdrlib=`echo "${TIRPC_LIBS}" | sed -e 's/^-l//'`
-+		TIRPC_PKG="libtirpc >= 0.2.4"
-+		AC_SUBST([TIRPC_PKG])
+ 		[dap_xdrlib=tirpc
+ 		LIBS="${TIRPC_LIBS} ${LIBS}"
++                TIRPC_PKG="libtirpc >= 0.2.4"
++                AC_SUBST([TIRPC_PKG])
  		AC_SUBST([TIRPC_CFLAGS])
  		AC_SUBST([TIRPC_LIBS])
  		AC_DEFINE([HAVE_LIBTIRPC], [1], [Define to 1 to use libtirpc.])],
